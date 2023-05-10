@@ -4,35 +4,62 @@ import 'package:template/mine.dart';
 import 'package:template/search.dart';
 
 
-class ScaffoldConfig {
+class ScaffoldConfig extends StatefulWidget {
 
-  Widget getBottomAppBar() {
+  const ScaffoldConfig({super.key});
 
-    const home = HomePage();
-    const search = SearchPage();
-    const mine = MinePage();
+  @override
+  State<StatefulWidget> createState() => _ScaffoldConfigState();
+}
 
-    return BottomAppBar(
-      height: 60,
-      child: Row(
-        children: [
-          IconButton(
-            onPressed: null, 
-            icon: Icon(home.icon),
-            tooltip: home.tooltip,
-          ),
-          IconButton(
-            onPressed: null, 
-            icon: Icon(search.icon),
-            tooltip: search.tooltip,
-          ),
-          IconButton(
-            onPressed: null, 
-            icon: Icon(mine.icon),
-            tooltip: mine.tooltip,
-          ),
-        ],
+class _ScaffoldConfigState extends State<ScaffoldConfig> {
+
+  static const items = [
+    HomePage(),
+    SearchPage(),
+    MinePage(),
+  ];
+
+  int _index = 0;
+
+  void ontap(int index) {
+    setState(() {
+      _index = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: items[_index],
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          children: [
+            IconButton(
+              onPressed: () => {
+                ontap(0)
+              },
+              icon: const Icon(Icons.home),
+              tooltip: 'Home',
+            ),
+            IconButton(
+              onPressed: () => {
+                ontap(1)
+              },
+              icon: const Icon(Icons.search),
+              tooltip: 'Search',
+            ),
+            IconButton(
+              onPressed: () => {
+                ontap(2)
+              },
+              icon: const Icon(Icons.person),
+              tooltip: 'Mine',
+            ),
+          ],
+        ),
       ),
     );
   }
+
 }

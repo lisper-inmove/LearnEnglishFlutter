@@ -1,17 +1,26 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   
   const HomePage({super.key});
 
-  final icon = Icons.home;
-  final tooltip = 'Home';
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+
+  int _count = 0;
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    return Text('Test $_count');
+  }
 
-    return Text('test');
+  void ontap() {
+    setState(() {
+      _count++;
+    });
   }
 
 }
