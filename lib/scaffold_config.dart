@@ -22,6 +22,11 @@ class _ScaffoldConfigState extends State<ScaffoldConfig> {
 
   int _index = 0;
 
+  static const iconSize = 32.0;
+  static const bottomAppBarHeight = 50.0;
+  static const bottomAppBarBPadding = 30.0;
+  static const bottomAppBarLPadding = 20.0;
+
   void ontap(int index) {
     setState(() {
       _index = index;
@@ -33,6 +38,14 @@ class _ScaffoldConfigState extends State<ScaffoldConfig> {
     return Scaffold(
       body: items[_index],
       bottomNavigationBar: BottomAppBar(
+        height: bottomAppBarHeight,
+        padding: const EdgeInsets.only(
+          bottom: bottomAppBarBPadding,
+          left: bottomAppBarLPadding
+        ),
+      
+        shape: const CircularNotchedRectangle(),
+        
         child: Row(
           children: [
             IconButton(
@@ -41,6 +54,7 @@ class _ScaffoldConfigState extends State<ScaffoldConfig> {
               },
               icon: const Icon(Icons.home),
               tooltip: 'Home',
+              iconSize: iconSize,
             ),
             IconButton(
               onPressed: () => {
@@ -48,6 +62,7 @@ class _ScaffoldConfigState extends State<ScaffoldConfig> {
               },
               icon: const Icon(Icons.search),
               tooltip: 'Search',
+              iconSize: iconSize,
             ),
             IconButton(
               onPressed: () => {
@@ -55,10 +70,18 @@ class _ScaffoldConfigState extends State<ScaffoldConfig> {
               },
               icon: const Icon(Icons.person),
               tooltip: 'Mine',
+              iconSize: iconSize,
             ),
           ],
         ),
       ),
+
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+      floatingActionButton: const FloatingActionButton(
+        onPressed: null,
+        child: Icon(Icons.camera_alt),
+      ),
+
     );
   }
 
