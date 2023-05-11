@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -86,7 +87,31 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _createCalendar(BuildContext context) {
-    return Container();
+    return Container(
+      child: Stack(
+        children: <Widget>[
+          Container(
+            margin: EdgeInsets.only(top: 10, left: 10),
+            child: ClipRect(
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+                child: Container(
+                  width: 150.0,
+                  height: 100.0,
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade200.withOpacity(0.5)
+                  ),
+                  child: Text(
+                    'Frosted',
+                    style: Theme.of(context).textTheme.bodyLarge
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 
   Widget _createMain(BuildContext context) {
