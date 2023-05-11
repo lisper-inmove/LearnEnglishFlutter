@@ -48,30 +48,37 @@ class _ScaffoldConfigState extends State<ScaffoldConfig> {
         
         child: Row(
           children: [
-            IconButton(
-              onPressed: () => {
-                ontap(0)
-              },
-              icon: const Icon(Icons.home),
-              tooltip: 'Home',
-              iconSize: iconSize,
+            Expanded(
+              child: IconButton(
+                onPressed: () => {
+                  ontap(0)
+                },
+                icon: const Icon(Icons.home),
+                tooltip: 'Home',
+                iconSize: iconSize,
+              ),
             ),
-            IconButton(
-              onPressed: () => {
-                ontap(1)
-              },
-              icon: const Icon(Icons.search),
-              tooltip: 'Search',
-              iconSize: iconSize,
+            Expanded(
+              child: IconButton(
+                onPressed: () => {
+                  ontap(1)
+                },
+                icon: const Icon(Icons.search),
+                tooltip: 'Search',
+                iconSize: iconSize,
+              ),
             ),
-            IconButton(
-              onPressed: () => {
-                ontap(2)
-              },
-              icon: const Icon(Icons.person),
-              tooltip: 'Mine',
-              iconSize: iconSize,
+            Expanded(
+              child: IconButton(
+                onPressed: () => {
+                  ontap(2)
+                },
+                icon: const Icon(Icons.person),
+                tooltip: 'Mine',
+                iconSize: iconSize,
+              ),
             ),
+            const Expanded(child: Text("")),
           ],
         ),
       ),

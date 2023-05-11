@@ -14,7 +14,14 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Text('Test $_count');
+    return Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("home-page.jpeg"),
+          fit: BoxFit.fill,
+        ),
+      ),
+    );
   }
 
   void ontap() {
