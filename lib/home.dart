@@ -17,7 +17,11 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        color: Colors.black,
+        color: Color(0x00ECF3F9),
+        image: DecorationImage(
+          image: AssetImage('bg01.jpeg'),
+          fit: BoxFit.cover,
+        ),
       ),
       child: _createBody(context),
     );
@@ -28,12 +32,8 @@ class _HomePageState extends State<HomePage> {
       direction: Axis.vertical,
       children: [
         Expanded(
-          flex: 100,
+          flex: 140,
           child: _createHeader(context)
-        ),
-        Expanded(
-          flex: 1,
-          child: _createSplit()
         ),
         Expanded(
           flex: 200,
@@ -87,19 +87,22 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _createCalendar(BuildContext context) {
+    Size s = MediaQuery.of(context).size;
+    double width = 400;
+    double left = (s.width - width) / 2;
     return Container(
       child: Stack(
         children: <Widget>[
           Container(
-            margin: EdgeInsets.only(top: 10, left: 10),
+            margin: EdgeInsets.only(top: 180, left: left),
             child: ClipRect(
               child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
                 child: Container(
-                  width: 150.0,
-                  height: 100.0,
+                  width: width / 2,
+                  height: 120.0,
                   decoration: BoxDecoration(
-                    color: Colors.grey.shade200.withOpacity(0.5)
+                    color: Colors.grey.shade200.withOpacity(0.3)
                   ),
                   child: Text(
                     'Frosted',

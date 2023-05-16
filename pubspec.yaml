@@ -61,6 +61,7 @@ flutter:
   assets:
     - assets/home-page.jpeg
     - assets/einstein.png
+    - assets/bg01.jpeg
 
   # To add assets to your application, add an assets section, like this:
   # assets:
